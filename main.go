@@ -8,7 +8,6 @@ import (
 )
 
 func main() {
-
 	//  Create web
 	webSrv := web.NewService(
 		web.Name("go.micro.api.captcha"),

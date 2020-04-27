@@ -1,4 +1,4 @@
-package api
+package v1
 
 import (
 	"fmt"
@@ -19,7 +19,7 @@ func GetCaptcha() gin.HandlerFunc {
 		var resp schemas.GetCaptchaResponse
 		id := captcha.New()
 		resp.CaptchaId = id
-		resp.Url = fmt.Sprintf("/captcha/api/v1/captcha/%v.png", id)
+		resp.Url = fmt.Sprintf("/captcha/v1/api/captcha/%v.png", id)
 		c.JSON(http.StatusOK, &resp)
 	}
 }
