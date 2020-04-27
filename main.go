@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 
-	"github.com/dchest/captcha"
 	"github.com/micro/go-micro/v2/web"
+	"github.com/shunjiecloud/captcha_api/routers"
 )
 
 func main() {
@@ -15,10 +15,12 @@ func main() {
 	)
 
 	//  register web handler
-	webSrv.Handle("/", captcha.Server(captcha.StdWidth, captcha.StdHeight))
+	webSrv.Handle("/", routers.InitRouter())
 
 	//  init
-	webSrv.Init()
+	if err := webSrv.Init(); err != nil {
+		log.Fatal(err)
+	}
 
 	if err := webSrv.Run(); err != nil {
 		log.Fatal(err)
