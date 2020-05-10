@@ -11,12 +11,14 @@ type moduleWrapper struct {
 	Redis *redis.Client
 }
 
+//ModuleContext 模块上下文
 var ModuleContext moduleWrapper
 
+//Setup 初始化Modules
 func Setup() {
 	//  redis
 	ModuleContext.Redis = redis.NewClient(&redis.Options{
-		Addr:     "192.168.0.160:6379",
+		Addr:     "127.0.0.1:6379",
 		Password: "", // no password set
 		DB:       0,  // use default DB
 	})
