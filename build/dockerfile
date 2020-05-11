@@ -1,4 +1,4 @@
 FROM golang:1.14.2-buster
 ENV PROJECT_NAME=captcha_api
-COPY ${PROJECT_NAME} /shunjiecloud
-RUN [${PROJECT_NAME}]
+COPY ./captcha_api /shunjiecloud/captcha_api
+CMD [/shunjiecloud/captcha_api]
