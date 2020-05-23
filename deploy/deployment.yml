@@ -27,6 +27,6 @@ spec:
         ]
         env:
         - name: CONFIG_FILE_PATH
-          value: "./config.json"
+          value: "/shunjiecloud/config.json"
         resources: {}
 status: {}
