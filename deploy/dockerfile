@@ -1,5 +1,4 @@
 FROM golang:1.14.2-buster
 COPY ./captcha_api /shunjiecloud/captcha_api
 COPY ./config.json /shunjiecloud/config.json
-CMD ["sleep", "100000"]
-#ENTRYPOINT ["/shunjiecloud/captcha_api"]
+ENTRYPOINT ["/shunjiecloud/captcha_api"]
