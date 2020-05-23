@@ -1,3 +1,4 @@
 FROM golang:1.14.2-buster
 COPY ./captcha_api /shunjiecloud/captcha_api
+COPY ./config.json /shunjiecloud/config.json
 ENTRYPOINT ["/shunjiecloud/captcha_api"]
