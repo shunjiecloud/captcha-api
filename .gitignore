@@ -15,3 +15,7 @@
 # vendor/
 
 captcha_api
+config.json
+.vscode
+micro.sh
+run.sh

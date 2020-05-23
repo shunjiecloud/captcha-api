@@ -1,10 +1,12 @@
 package modules
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/dchest/captcha"
 	"github.com/go-redis/redis/v7"
+	"github.com/micro/go-micro/v2/config"
 )
 
 type moduleWrapper struct {
@@ -17,8 +19,12 @@ var ModuleContext moduleWrapper
 //Setup 初始化Modules
 func Setup() {
 	//  redis
+	var host Host
+	if err := config.Get("hosts", "redis").Scan(&host); err != nil {
+		panic(err)
+	}
 	ModuleContext.Redis = redis.NewClient(&redis.Options{
-		Addr:     "shunjiecloud-redis:6379",
+		Addr:     fmt.Sprintf("%v:%v", host.Address, host.Port),
 		Password: "", // no password set
 		DB:       0,  // use default DB
 	})

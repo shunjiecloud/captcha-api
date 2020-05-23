@@ -4,8 +4,13 @@ import (
 	"time"
 )
 
+//RedisCaptchaStorePrefix 验证码种子集合前缀
 const RedisCaptchaStorePrefix = "captcha:collects:"
+
+//RedisCaptchaMaxNumKey 保有的验证码最大数量
 const RedisCaptchaMaxNumKey = "captcha:max"
+
+//RedisCaptchaCurNumKey 当前验证码数量
 const RedisCaptchaCurNumKey = "captcha:cur"
 
 type RedisCaptchaStore struct {
@@ -14,7 +19,7 @@ type RedisCaptchaStore struct {
 }
 
 func (store *RedisCaptchaStore) Set(id string, digits []byte) {
-	//  检查key数量是否超过上限
+	//  TODO ： 检查key数量是否超过上限
 	key := RedisCaptchaStorePrefix + id
 	ModuleContext.Redis.Set(key, digits, store.expiration)
 }
