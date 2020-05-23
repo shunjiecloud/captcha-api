@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: captcha_api
-  name: captcha_api
+    app: captcha-api
+  name: captcha-api
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: captcha_api
+      app: captcha-api
   strategy: {}
   template:
     metadata:
       labels:
-        app: captcha_api
+        app: captcha-api
     spec:
       containers:
-      - image: harbor.shunjiecloud.com/shunjiecloud/captcha_api:BUILD_NUMBER
+      - image: harbor.shunjiecloud.com/shunjiecloud/captcha-api:BUILD_NUMBER
         name: captcha-api
         args: [
           "--registry=etcd",
