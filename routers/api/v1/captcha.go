@@ -15,7 +15,7 @@ func GetCaptcha() gin.HandlerFunc {
 		var resp schemas.GetCaptchaResponse
 		id := captcha.New()
 		resp.CaptchaID = id
-		resp.URL = fmt.Sprintf("/captcha/v1/api/captcha/%v.png", id)
+		resp.URL = fmt.Sprintf("/captcha/v1/captcha/%v.png", id)
 		c.JSON(http.StatusOK, &resp)
 	}
 }

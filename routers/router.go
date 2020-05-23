@@ -12,7 +12,7 @@ func InitRouter() *gin.Engine {
 	r.Use(middlewares.Logger())
 	r.Use(gin.Recovery())
 
-	apiv1 := r.Group("/captcha/v1/api/")
+	apiv1 := r.Group("/captcha/v1/")
 
 	apiv1.GET("captcha", v1.GetCaptcha())
 	apiv1.GET("captcha/:filename", v1.CaptchaSrv())
