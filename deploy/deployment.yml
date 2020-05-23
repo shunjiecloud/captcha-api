@@ -4,6 +4,7 @@ metadata:
   labels:
     app: captcha-api
   name: captcha-api
+  namespace: shunjiecloud
 spec:
   replicas: 2
   selector:
@@ -15,6 +16,8 @@ spec:
       labels:
         app: captcha-api
     spec:
+      imagePullSecrets:
+      - name: harbor
       containers:
       - image: harbor.shunjiecloud.com/shunjiecloud/captcha-api:BUILD_NUMBER
         name: captcha-api
