@@ -2,7 +2,7 @@ package routers
 
 import (
 	"github.com/gin-gonic/gin"
-	v1 "github.com/shunjiecloud/captcha_api/routers/api/v1"
+	v1 "github.com/shunjiecloud/captcha-api/routers/api/v1"
 	"github.com/shunjiecloud/pkg/middlewares"
 )
 

@@ -6,7 +6,7 @@ import (
 
 	"github.com/dchest/captcha"
 	"github.com/gin-gonic/gin"
-	"github.com/shunjiecloud/captcha_api/schemas"
+	"github.com/shunjiecloud/captcha-api/schemas"
 )
 
 //GetCaptcha 获取验证码

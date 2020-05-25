@@ -4,8 +4,8 @@ import (
 	"log"
 
 	"github.com/micro/go-micro/v2/web"
-	"github.com/shunjiecloud/captcha_api/modules"
-	"github.com/shunjiecloud/captcha_api/routers"
+	"github.com/shunjiecloud/captcha-api/modules"
+	"github.com/shunjiecloud/captcha-api/routers"
 )
 
 func main() {
