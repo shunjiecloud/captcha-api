@@ -35,14 +35,17 @@ var doc = `{
     "paths": {
         "/captcha/v1/captcha": {
             "get": {
-                "description": "get string by ID",
+                "description": "获取验证码地址。",
                 "consumes": [
                     "application/json"
                 ],
                 "produces": [
                     "application/json"
                 ],
-                "summary": "Add a new pet to the store",
+                "tags": [
+                    "验证码"
+                ],
+                "summary": "获取验证码地址",
                 "responses": {
                     "200": {
                         "description": "ok",
@@ -55,18 +58,21 @@ var doc = `{
         },
         "/captcha/v1/captcha/{filename}": {
             "get": {
-                "description": "get string by ID",
+                "description": "根据验证码地址，获取验证码图片。",
                 "consumes": [
                     "application/json"
                 ],
                 "produces": [
                     "image/png"
                 ],
-                "summary": "Add a new pet to the store",
+                "tags": [
+                    "验证码"
+                ],
+                "summary": "验证码图片",
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "验证码id",
+                        "description": "验证码图片名，例如：o5CaUbWHwjRUg6tyYrBW.png",
                         "name": "filename",
                         "in": "path",
                         "required": true
