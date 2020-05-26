@@ -11,7 +11,8 @@ import (
 
 //
 // @Summary Add a new pet to the store
-// @Description get string by ID
+// @tags 验证码
+// @Description 获取验证码地址。
 // @Accept  json
 // @Produce  json
 // @Success 200 {string} string	"ok"
@@ -28,7 +29,8 @@ func GetCaptcha() gin.HandlerFunc {
 
 //
 // @Summary Add a new pet to the store
-// @Description get string by ID
+// @tags 验证码
+// @Description 根据验证码地址，获取验证码图片。
 // @Accept  json
 // @Produce  image/png
 // @Success 200 "验证码图片"
