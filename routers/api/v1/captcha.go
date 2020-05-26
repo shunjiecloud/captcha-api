@@ -10,7 +10,7 @@ import (
 )
 
 //
-// @Summary Add a new pet to the store
+// @Summary 获取验证码地址
 // @tags 验证码
 // @Description 获取验证码地址。
 // @Accept  json
@@ -28,7 +28,7 @@ func GetCaptcha() gin.HandlerFunc {
 }
 
 //
-// @Summary Add a new pet to the store
+// @Summary 验证码图片
 // @tags 验证码
 // @Description 根据验证码地址，获取验证码图片。
 // @Accept  json
