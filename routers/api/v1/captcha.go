@@ -33,7 +33,7 @@ func GetCaptcha() gin.HandlerFunc {
 // @Produce  image/png
 // @Success 200 "验证码图片"
 // @failure 400 {string} string	"404 page not found"
-// @Param filename path string true "验证码id"
+// @Param filename path string true "验证码图片名，例如：o5CaUbWHwjRUg6tyYrBW.png"
 // @Router /captcha/v1/captcha/{filename} [get]
 func CaptchaSrv() gin.HandlerFunc {
 	captchaSrv := captcha.Server(captcha.StdWidth, captcha.StdHeight)
