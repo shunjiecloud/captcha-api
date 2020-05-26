@@ -1,0 +1,50 @@
+basePath: /
+host: api.shunjiecloud.com
+info:
+  contact:
+    email: zhou_shengjie@outlook.com
+    name: zhoushengjie
+    url: https://www.shunjiecloud.com
+  description: 瞬捷云 captcha-api 验证码服务api
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  termsOfService: https://www.shunjiecloud.com
+  title: Swagger Example API
+  version: "1.0"
+paths:
+  /captcha/v1/captcha:
+    get:
+      consumes:
+      - application/json
+      description: get string by ID
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+      summary: Add a new pet to the store
+  /captcha/v1/captcha/{filename}:
+    get:
+      consumes:
+      - application/json
+      description: get string by ID
+      parameters:
+      - description: 验证码id
+        in: path
+        name: filename
+        required: true
+        type: string
+      produces:
+      - image/png
+      responses:
+        "200":
+          description: 验证码图片
+        "400":
+          description: 404 page not found
+          schema:
+            type: string
+      summary: Add a new pet to the store
+swagger: "2.0"

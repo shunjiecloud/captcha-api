@@ -9,7 +9,13 @@ import (
 	"github.com/shunjiecloud/captcha-api/schemas"
 )
 
-//GetCaptcha 获取验证码
+//
+// @Summary Add a new pet to the store
+// @Description get string by ID
+// @Accept  json
+// @Produce  json
+// @Success 200 {string} string	"ok"
+// @Router /captcha/v1/captcha [get]
 func GetCaptcha() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var resp schemas.GetCaptchaResponse
@@ -20,7 +26,15 @@ func GetCaptcha() gin.HandlerFunc {
 	}
 }
 
-//CaptchaSrv 验证码srv
+//
+// @Summary Add a new pet to the store
+// @Description get string by ID
+// @Accept  json
+// @Produce  image/png
+// @Success 200 "验证码图片"
+// @failure 400 {string} string	"404 page not found"
+// @Param filename path string true "验证码id"
+// @Router /captcha/v1/captcha/{filename} [get]
 func CaptchaSrv() gin.HandlerFunc {
 	captchaSrv := captcha.Server(captcha.StdWidth, captcha.StdHeight)
 	return func(c *gin.Context) {
