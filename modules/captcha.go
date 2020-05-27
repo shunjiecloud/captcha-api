@@ -19,9 +19,29 @@ type RedisCaptchaStore struct {
 }
 
 func (store *RedisCaptchaStore) Set(id string, digits []byte) {
-	//  TODO ： 检查key数量是否超过上限
+	//  检查key数量是否超过上限
+	curNum, err := ModuleContext.Redis.Get(RedisCaptchaCurNumKey).Int64()
+	if err != nil {
+
+	}
+	maxNum, err := ModuleContext.Redis.Get(RedisCaptchaMaxNumKey).Int64()
+	if err != nil {
+
+	}
+	if curNum >= maxNum {
+		//  超数，服务不可用
+		return
+	}
+	//  设置key，计数器加1
 	key := RedisCaptchaStorePrefix + id
-	ModuleContext.Redis.Set(key, digits, store.expiration)
+	_, err = ModuleContext.Redis.Set(key, digits, store.expiration).Result()
+	if err != nil {
+
+	}
+	_, err = ModuleContext.Redis.Incr(RedisCaptchaCurNumKey).Result()
+	if err != nil {
+
+	}
 }
 
 func (store *RedisCaptchaStore) Get(id string, clear bool) (digits []byte) {
@@ -32,6 +52,18 @@ func (store *RedisCaptchaStore) Get(id string, clear bool) (digits []byte) {
 		return nil
 	}
 	digits = []byte(ret)
+
+	if clear == true {
+		//  clear为true，删除id，计数器减1
+		_, err = ModuleContext.Redis.Del(key).Result()
+		if err != nil {
+
+		}
+		_, err = ModuleContext.Redis.Decr(RedisCaptchaCurNumKey).Result()
+		if err != nil {
+
+		}
+	}
 	return digits
 }
 
