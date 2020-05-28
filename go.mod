@@ -11,7 +11,8 @@ require (
 	github.com/golang/protobuf v1.4.2 // indirect
 	github.com/mailru/easyjson v0.7.1 // indirect
 	github.com/micro/go-micro/v2 v2.6.0
-	github.com/shunjiecloud/pkg v0.0.0-20200427094022-0906087b3580
+	github.com/shunjiecloud/errors v1.0.3-0.20200427091440-d2c8251bbc81
+	github.com/shunjiecloud/pkg v0.0.0-20200528071321-6930a20ca241
 	github.com/swaggo/files v0.0.0-20190704085106-630677cd5c14
 	github.com/swaggo/gin-swagger v1.2.0
 	github.com/swaggo/swag v1.6.6

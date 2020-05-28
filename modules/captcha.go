@@ -2,6 +2,9 @@ package modules
 
 import (
 	"time"
+
+	"github.com/shunjiecloud/errors"
+	"github.com/shunjiecloud/pkg/log"
 )
 
 //RedisCaptchaStorePrefix 验证码种子集合前缀
@@ -22,25 +25,30 @@ func (store *RedisCaptchaStore) Set(id string, digits []byte) {
 	//  检查key数量是否超过上限
 	curNum, err := ModuleContext.Redis.Get(RedisCaptchaCurNumKey).Int64()
 	if err != nil {
-
+		log.Error(errors.New("get captcha cur num failed"))
+		return
 	}
 	maxNum, err := ModuleContext.Redis.Get(RedisCaptchaMaxNumKey).Int64()
 	if err != nil {
-
+		log.Error(errors.New("get captcha max num failed"))
+		return
 	}
 	if curNum >= maxNum {
 		//  超数，服务不可用
+		log.Error(errors.New("captcha num over than max"))
 		return
 	}
 	//  设置key，计数器加1
 	key := RedisCaptchaStorePrefix + id
 	_, err = ModuleContext.Redis.Set(key, digits, store.expiration).Result()
 	if err != nil {
-
+		log.Error(errors.New("captcha store failed"))
+		return
 	}
 	_, err = ModuleContext.Redis.Incr(RedisCaptchaCurNumKey).Result()
 	if err != nil {
-
+		log.Error(errors.New("captcha num incr failed"))
+		return
 	}
 }
 
@@ -57,11 +65,13 @@ func (store *RedisCaptchaStore) Get(id string, clear bool) (digits []byte) {
 		//  clear为true，删除id，计数器减1
 		_, err = ModuleContext.Redis.Del(key).Result()
 		if err != nil {
-
+			log.Error(errors.New("delete captcha store failed"))
+			return
 		}
 		_, err = ModuleContext.Redis.Decr(RedisCaptchaCurNumKey).Result()
 		if err != nil {
-
+			log.Error(errors.New("captcha num decr failed"))
+			return
 		}
 	}
 	return digits

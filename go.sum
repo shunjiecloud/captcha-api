@@ -440,9 +440,10 @@ github.com/satori/go.uuid v1.2.0/go.mod h1:dA0hQrYB0VpLJoorglMZABFdXlWrHn1NEOzdh
 github.com/sergi/go-diff v1.0.0/go.mod h1:0CfEIISq7TuYL3j771MWULgwwjU+GofnZX9QAmXWZgo=
 github.com/sergi/go-diff v1.1.0 h1:we8PVUC3FE2uYfodKH/nBHMSetSfHDR6scGdBi+erh0=
 github.com/sergi/go-diff v1.1.0/go.mod h1:STckp+ISIX8hZLjrqAeVduY0gWCT9IjLuqbuNXdaHfM=
+github.com/shunjiecloud/errors v1.0.3-0.20200427091440-d2c8251bbc81 h1:FM4BKrhCrECq1XpkKwy+3qsUxYNluWSrIhCZJZY6kKw=
 github.com/shunjiecloud/errors v1.0.3-0.20200427091440-d2c8251bbc81/go.mod h1:11oXgDJrf0RUitbjDJe+Ht/B1iq9gEJZMI9ijhgO40E=
-github.com/shunjiecloud/pkg v0.0.0-20200427094022-0906087b3580 h1:2mNGNxNvyyh48X7zF/gM4srjiqzMilNd0KjY+VrUozU=
-github.com/shunjiecloud/pkg v0.0.0-20200427094022-0906087b3580/go.mod h1:RpfZjvnbKXL8wz2HgHsdfpDIJGZaPMzrDn1QirAaP88=
+github.com/shunjiecloud/pkg v0.0.0-20200528071321-6930a20ca241 h1:4aBE+rqFbk2uKT0A9M6K77TNuqIzgdFlkxG377aaEC8=
+github.com/shunjiecloud/pkg v0.0.0-20200528071321-6930a20ca241/go.mod h1:ukrS8r067vwG4B5PsV06N00viY4BJY6MQ2LXxhbr6AI=
 github.com/shurcooL/sanitized_anchor_name v1.0.0 h1:PdmoCO6wvbs+7yrJyMORt4/BmY5IYyJwS/kOiWx8mHo=
 github.com/shurcooL/sanitized_anchor_name v1.0.0/go.mod h1:1NzhyTcUVG4SuEtjjoZeVRXNmyL/1OwPU0+IJeTBvfc=
 github.com/sirupsen/logrus v1.2.0/go.mod h1:LxeOpSwHxABJmUn/MG1IvRgCAasNZTLOkJPxbbu5VWo=
