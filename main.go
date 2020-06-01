@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 
+	"github.com/micro/go-micro/v2"
 	"github.com/micro/go-micro/v2/web"
 	"github.com/shunjiecloud/captcha-api/modules"
 	"github.com/shunjiecloud/captcha-api/routers"
@@ -25,7 +26,7 @@ import (
 
 func main() {
 	//  modules init
-	modules.Setup()
+	modules.Setup(micro.NewService())
 
 	//  Create web
 	webSrv := web.NewService(

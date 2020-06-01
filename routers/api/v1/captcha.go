@@ -1,12 +1,16 @@
 package v1
 
 import (
+	"context"
 	"fmt"
 	"net/http"
 
 	"github.com/dchest/captcha"
 	"github.com/gin-gonic/gin"
+	"github.com/shunjiecloud-proto/captcha/proto"
+	"github.com/shunjiecloud/captcha-api/modules"
 	"github.com/shunjiecloud/captcha-api/schemas"
+	"github.com/shunjiecloud/pkg/app"
 )
 
 //
@@ -19,10 +23,18 @@ import (
 // @Router /captcha/v1/captcha [get]
 func GetCaptcha() gin.HandlerFunc {
 	return func(c *gin.Context) {
+		appCtx := app.AppContext{
+			GinCtx: c,
+		}
 		var resp schemas.GetCaptchaResponse
-		id := captcha.New()
-		resp.CaptchaID = id
-		resp.URL = fmt.Sprintf("/captcha/v1/captcha/%v.png", id)
+		//  captcha-srv CaptchaId
+		getCaptchaIdResp, err := modules.ModuleContext.CaptchaSrvClient.CaptchaId(context.Background(), &proto.CaptchaIdRequest{})
+		if err != nil {
+			appCtx.WriteError(err)
+			return
+		}
+		resp.CaptchaID = getCaptchaIdResp.CaptchaId
+		resp.URL = fmt.Sprintf("/captcha/v1/captcha/%v.png", resp.CaptchaID)
 		c.JSON(http.StatusOK, &resp)
 	}
 }
