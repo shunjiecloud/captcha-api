@@ -9,11 +9,10 @@ require (
 	github.com/go-playground/validator/v10 v10.3.0 // indirect
 	github.com/go-redis/redis/v7 v7.3.0
 	github.com/mailru/easyjson v0.7.1 // indirect
-	github.com/micro/go-micro v1.18.0
 	github.com/micro/go-micro/v2 v2.7.0
 	github.com/shunjiecloud-proto/captcha v0.0.0-20200601133446-b8be4403dcdf
 	github.com/shunjiecloud/captcha-srv v0.0.0-20200601135522-891282228199
-	github.com/shunjiecloud/pkg v0.0.0-20200528071321-6930a20ca241
+	github.com/shunjiecloud/pkg v0.0.0-20200602063315-4f7969972c9f
 	github.com/swaggo/files v0.0.0-20190704085106-630677cd5c14
 	github.com/swaggo/gin-swagger v1.2.0
 	github.com/swaggo/swag v1.6.6
