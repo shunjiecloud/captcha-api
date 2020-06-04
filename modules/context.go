@@ -23,7 +23,7 @@ type moduleWrapper struct {
 var ModuleContext moduleWrapper
 
 //Setup 初始化Modules
-func Setup(service micro.Service) {
+func Setup() {
 	//  redis
 	var host Host
 	if err := config.Get("hosts", "redis").Scan(&host); err != nil {
@@ -52,7 +52,8 @@ func Setup(service micro.Service) {
 	captcha.SetCustomStore(store)
 
 	//  captcha-srv
-	ModuleContext.CaptchaSrvClient = proto.NewCaptchaService("go.micro.srv.captcha", service.Client())
+	m_service := micro.NewService()
+	ModuleContext.CaptchaSrvClient = proto.NewCaptchaService("go.micro.srv.captcha", m_service.Client())
 	if ModuleContext.CaptchaSrvClient == nil {
 		panic("captcha-srv client init failed")
 	}
