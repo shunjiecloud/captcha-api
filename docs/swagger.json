@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "description": "瞬捷云 captcha-api 验证码服务api",
-        "title": "Swagger Example API",
+        "title": "瞬捷云验证码服务api",
         "termsOfService": "https://www.shunjiecloud.com",
         "contact": {
             "name": "zhoushengjie",
@@ -33,9 +33,9 @@
                 "summary": "获取验证码地址",
                 "responses": {
                     "200": {
-                        "description": "ok",
+                        "description": "OK",
                         "schema": {
-                            "type": "string"
+                            "$ref": "#/definitions/schemas.GetCaptchaResponse"
                         }
                     }
                 }
@@ -73,6 +73,19 @@
                             "type": "string"
                         }
                     }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "schemas.GetCaptchaResponse": {
+            "type": "object",
+            "properties": {
+                "captcha_id": {
+                    "type": "string"
+                },
+                "captcha_url": {
+                    "type": "string"
                 }
             }
         }

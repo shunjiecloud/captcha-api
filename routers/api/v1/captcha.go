@@ -19,7 +19,7 @@ import (
 // @Description 获取验证码地址。
 // @Accept  json
 // @Produce  json
-// @Success 200 {string} string	"ok"
+// @Success 200 {object} schemas.GetCaptchaResponse
 // @Router /captcha/v1/captcha [get]
 func GetCaptcha() gin.HandlerFunc {
 	return func(c *gin.Context) {

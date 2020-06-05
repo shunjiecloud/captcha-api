@@ -48,9 +48,9 @@ var doc = `{
                 "summary": "获取验证码地址",
                 "responses": {
                     "200": {
-                        "description": "ok",
+                        "description": "OK",
                         "schema": {
-                            "type": "string"
+                            "$ref": "#/definitions/schemas.GetCaptchaResponse"
                         }
                     }
                 }
@@ -91,6 +91,19 @@ var doc = `{
                 }
             }
         }
+    },
+    "definitions": {
+        "schemas.GetCaptchaResponse": {
+            "type": "object",
+            "properties": {
+                "captcha_id": {
+                    "type": "string"
+                },
+                "captcha_url": {
+                    "type": "string"
+                }
+            }
+        }
     }
 }`
 
@@ -109,7 +122,7 @@ var SwaggerInfo = swaggerInfo{
 	Host:        "api.shunjiecloud.com",
 	BasePath:    "/",
 	Schemes:     []string{},
-	Title:       "Swagger Example API",
+	Title:       "瞬捷云验证码服务api",
 	Description: "瞬捷云 captcha-api 验证码服务api",
 }
 
