@@ -10,7 +10,7 @@ require (
 	github.com/go-redis/redis/v7 v7.3.0
 	github.com/mailru/easyjson v0.7.1 // indirect
 	github.com/micro/go-micro/v2 v2.8.0
-	github.com/shunjiecloud-proto/captcha v0.0.0-20200605191029-f8be6b1ec2f3
+	github.com/shunjiecloud-proto/captcha v0.0.0-20200606113732-01d020f2eff8
 	github.com/shunjiecloud/captcha-srv v0.0.0-20200601135522-891282228199
 	github.com/shunjiecloud/pkg v0.0.0-20200602063315-4f7969972c9f
 	github.com/swaggo/files v0.0.0-20190704085106-630677cd5c14

@@ -122,7 +122,7 @@ var SwaggerInfo = swaggerInfo{
 	Host:        "api.shunjiecloud.com",
 	BasePath:    "/",
 	Schemes:     []string{},
-	Title:       "瞬捷云验证码服务api",
+	Title:       "瞬捷云验证码服务",
 	Description: "瞬捷云 captcha-api 验证码服务api",
 }
 

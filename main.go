@@ -8,7 +8,7 @@ import (
 	"github.com/shunjiecloud/captcha-api/routers"
 )
 
-// @title 瞬捷云验证码服务api
+// @title 瞬捷云验证码服务
 // @version 1.0
 // @description 瞬捷云 captcha-api 验证码服务api
 // @termsOfService https://www.shunjiecloud.com

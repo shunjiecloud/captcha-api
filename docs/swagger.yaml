@@ -18,7 +18,7 @@ info:
     name: MIT
     url: https://opensource.org/licenses/MIT
   termsOfService: https://www.shunjiecloud.com
-  title: 瞬捷云验证码服务api
+  title: 瞬捷云验证码服务
   version: "1.0"
 paths:
   /captcha/v1/captcha:

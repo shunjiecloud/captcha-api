@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "description": "瞬捷云 captcha-api 验证码服务api",
-        "title": "瞬捷云验证码服务api",
+        "title": "瞬捷云验证码服务",
         "termsOfService": "https://www.shunjiecloud.com",
         "contact": {
             "name": "zhoushengjie",
