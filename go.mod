@@ -12,7 +12,7 @@ require (
 	github.com/micro/go-micro/v2 v2.8.0
 	github.com/shunjiecloud-proto/captcha v0.0.0-20200606113732-01d020f2eff8
 	github.com/shunjiecloud/captcha-srv v0.0.0-20200601135522-891282228199
-	github.com/shunjiecloud/pkg v0.0.0-20200602063315-4f7969972c9f
+	github.com/shunjiecloud/pkg v0.0.0-20200608184151-f4db92e84b6c
 	github.com/swaggo/files v0.0.0-20190704085106-630677cd5c14
 	github.com/swaggo/gin-swagger v1.2.0
 	github.com/swaggo/swag v1.6.6

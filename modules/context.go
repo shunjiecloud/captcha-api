@@ -2,8 +2,6 @@ package modules
 
 import (
 	"fmt"
-	"os"
-	"strconv"
 	"time"
 
 	"github.com/dchest/captcha"
@@ -25,12 +23,12 @@ var ModuleContext moduleWrapper
 //Setup 初始化Modules
 func Setup() {
 	//  redis
-	var host Host
-	if err := config.Get("hosts", "redis").Scan(&host); err != nil {
+	var redisConfig RedisConfig
+	if err := config.Get("config", "redis").Scan(&redisConfig); err != nil {
 		panic(err)
 	}
 	ModuleContext.Redis = redis.NewClient(&redis.Options{
-		Addr:     fmt.Sprintf("%v:%v", host.Address, host.Port),
+		Addr:     fmt.Sprintf("%v:%v", redisConfig.Address, redisConfig.Port),
 		Password: "", // no password set
 		DB:       1,  // use default DB
 	})
@@ -40,15 +38,11 @@ func Setup() {
 	}
 
 	//  captcha-store
-	strMaxNum := os.Getenv("MAX_CAPTCHA_COLLECT_NUM")
-	if len(strMaxNum) == 0 {
-		panic("MAX_CAPTCHA_COLLECT_NUM not set")
+	var captchaConfig CaptchaConfig
+	if err := config.Get("config", "captcha").Scan(&captchaConfig); err != nil {
+		panic(err)
 	}
-	maxNum, err := strconv.ParseUint(strMaxNum, 10, 64)
-	if err != nil {
-		panic("MAX_CAPTCHA_COLLECT_NUM is not a number")
-	}
-	store := store.NewRedisCaptchaStore(ModuleContext.Redis, maxNum, time.Duration(10)*time.Minute)
+	store := store.NewRedisCaptchaStore(ModuleContext.Redis, captchaConfig.MaxCollectNum, time.Duration(10)*time.Minute)
 	captcha.SetCustomStore(store)
 
 	//  captcha-srv
